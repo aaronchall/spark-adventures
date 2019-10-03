@@ -498,6 +498,8 @@ e.g.
 ```
 val weather  = spark.read.json("file:///home/developer/datasets/weather.json")
 
+////ACH: weather.schema?
+
 weather.createOrReplaceTempView("vWeatherLDM")
 
 //Create new dataset with subjects that have the word Tstem (Thunderstorm) 
@@ -515,7 +517,7 @@ var stackStates = Stack[String]()
 //parse out States where thunderstorms occur 
 var ll = rowString.split(' ')
 //for comprehension
-for (p  ll if p.length() == 2) stackStates.push(p)
+for (p <- ll if p.length() == 2) stackStates.push(p)
 
 
 //add some extra state data to test count groupBy
